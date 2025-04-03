@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: azuredb
+    ports:
+      - "3333:3306"
