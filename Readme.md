@@ -21,23 +21,23 @@ La arquitectura utilizada en el proyecto está basada en servicios de Amazon Web
 ## 3. Descripción de los Diferentes Usuarios de IAM en Amazon
 A continuación, se describen los usuarios de IAM (Identity and Access Management) creados en AWS, junto con sus respectivas políticas:
 
-- **Usuario 1: Administrador**
-  - **Políticas**: `AdministratorAccess`
-  - Descripción: Tiene acceso completo a todos los servicios y recursos de AWS.
+- **Usuario 1: AdministradorLambda**
+  - **Políticas**: `AmazonAPIGatewayAdministrator`, `AWSLambda_FullAccess`, `IAMFullAccess`
+  - Descripción: Tiene acceso completo para administrar, visualizar y modificar las funciones lambda; de la misma manera, tiene control sobre las **api gateway** utilizadas en conjunto con las **funciones lambda**.
   
-- **Usuario 2: Desarrollador**
-  - **Políticas**: `PowerUserAccess`, `AmazonS3FullAccess`, `AmazonEC2FullAccess`
-  - Descripción: Tiene acceso completo a EC2 y S3, pero no a la gestión de usuarios ni configuraciones globales.
+- **Usuario 2: AdministradorS3**
+  - **Políticas**: `AmazonS3FullAccess`, `IAMFullAccess`
+  - Descripción: Se encarga de administrar las configuraciones de los buckets de AWS.
 
-- **Usuario 3: Lector**
-  - **Políticas**: `ReadOnlyAccess`
-  - Descripción: Solo puede visualizar recursos sin la capacidad de modificarlos.
+- **Usuario 3: AdministradorEC2**
+  - **Políticas**: `AmazonEC2FullAccess`, `IAMFullAccess`
+  - Descripción: Encargado del manejo de las instancias EC2 junto con su balanceador de carga.
 
 ## 4. Capturas de Pantalla de los Recursos
 
 ### a. AWS
 - **Buckets de Amazon S3**:
-  ![Bucket de S3](ruta/a/tu/captura_de_pantalla_S3.png)
+  ![Bucket de S3](./Imagenes%20Manual/buckets.png)
   
 - **Instancias de EC2**:
   ![Instancia EC2](ruta/a/tu/captura_de_pantalla_EC2.png)
@@ -49,10 +49,10 @@ A continuación, se describen los usuarios de IAM (Identity and Access Managemen
   ![Base de Datos RDS](ruta/a/tu/captura_de_pantalla_RDS.png)
 
 - **Funciones Lambda**:
-  ![Función Lambda](ruta/a/tu/captura_de_pantalla_Lambda.png)
+  ![Función Lambda](./Imagenes%20Manual/lambda_functions.png)
 
 - **Configuración de API Gateway**:
-  ![API Gateway](ruta/a/tu/captura_de_pantalla_APIGateway.png)
+  ![API Gateway](./Imagenes%20Manual/api_gateway.png)
 
 ### b. Azure
 - **Blob Containers de Azure**:
