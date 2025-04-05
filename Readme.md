@@ -71,6 +71,11 @@ A continuación, se describen los usuarios de IAM (Identity and Access Managemen
 - **Configuración de API Management**:
   ![API Management](./Imagenes%20Manual/caputura_api.png)
 
+
+## Diagrama
+![image](https://github.com/user-attachments/assets/d5bc3736-6672-4447-ada2-1fafdafb5114)
+
+
 ## 5. Conclusión
 
 AWS es más completo y versátil, con una cantidad enorme de servicios y opciones. Sin embargo, esa misma variedad a veces puede ser abrumadora, sobre todo al principio, porque cada servicio tiene muchas configuraciones y detalles que hay que entender bien.
