@@ -1,20 +1,21 @@
 import express from 'express';
+import pool from '../config/db.js';
 
 const router = express.Router();
 
-// subir archivo
-router.post('/', async (req, res) => {
-  const { file } = req.files;
-  const { user_id } = req.body;
-  if (!file || !user_id) {
+// obtener archivo
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  if (!id) {
     return res.status(400).json({ message: 'Todos los campos son obligatorios' });
   }
   try {
-    const filePath = `uploads/${file.name}`;
-    await file.mv(filePath);
-    res.status(201).json({ message: 'Archivo subido exitosamente', filePath });
+    const [files] = await pool.query('SELECT * FROM files WHERE user_id = ?', [id]);
+    res.status(200).json(files);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error al subir el archivo' });
+    res.status(500).json({ message: 'Error al obtener el archivo' });
   }
 })
+
+export default router;

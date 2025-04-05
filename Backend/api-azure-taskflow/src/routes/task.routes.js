@@ -57,7 +57,7 @@ router.delete('/:id', async (req, res) => {
   // id de la tarea a eliminar
   const { id } = req.params;
   try {
-    const [result] = await pool.query('DELETE FROM tasks WHERE user_id = ?', [id]);
+    const [result] = await pool.query('DELETE FROM tasks WHERE id = ?', [id]);
     if (result.affectedRows === 0) {
       return res.status(404).json({ message: 'Tarea no encontrada' });
     }
